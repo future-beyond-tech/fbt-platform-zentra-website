@@ -42,6 +42,12 @@ export function Header() {
           >
             Use Cases
           </a>
+          <Link
+            href="/security-whitepaper"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+          >
+            Security Whitepaper
+          </Link>
           <a
             href="#contact"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
