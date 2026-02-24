@@ -31,10 +31,10 @@ export function Header() {
         </Link>
         <nav aria-label="Main navigation" className="flex items-center gap-4">
           <a
-            href="#solutions"
+            href="#security-highlights"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
           >
-            Solutions
+            Security
           </a>
           <a
             href="#use-cases"
@@ -55,7 +55,7 @@ export function Header() {
             Contact
           </a>
           <Button asChild size="sm" className="rounded-lg">
-            <a href="#contact">{siteConfig.name} Demo</a>
+            <a href="#contact">Request Architecture Review</a>
           </Button>
         </nav>
       </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { siteConfig } from "@/content/site";
+import { siteConfig, seo } from "@/content/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,24 +14,14 @@ const geistMono = Geist_Mono({
 });
 
 const title = `${siteConfig.name} — ${siteConfig.tagline}`;
-const description =
-  "Enterprise-grade OAuth 2.0 and OpenID Connect identity provider. Security-first, compliance-ready, vendor-independent. Built for CTOs, Security Architects, and SaaS founders.";
+const description = seo.metaDescription;
 const url = siteConfig.url;
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
   title,
   description,
-  keywords: [
-    "OAuth 2.0 server",
-    "OpenID Connect provider",
-    "Enterprise SSO platform",
-    "self-hosted identity provider",
-    "microservices authentication",
-    "JWT identity platform",
-    "identity and access management",
-    "IAM",
-  ],
+  keywords: seo.keywords,
   authors: [{ name: siteConfig.companyFull, url }],
   creator: siteConfig.companyFull,
   openGraph: {

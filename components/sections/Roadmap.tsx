@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { roadmapLevels } from "@/content/site";
+import { roadmapLevels, roadmapSection } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 export function Roadmap() {
@@ -19,7 +19,7 @@ export function Roadmap() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
         >
-          Engineering Maturity Roadmap
+          {roadmapSection.title}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -28,7 +28,7 @@ export function Roadmap() {
           transition={{ delay: 0.05 }}
           className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground"
         >
-          Zentra is at L2 (Production Ready) and moving toward L3 (Enterprise Hardened).
+          {roadmapSection.subtitle}
         </motion.p>
 
         <div className="mt-12 space-y-4">

@@ -1,37 +1,49 @@
+/**
+ * ZENTRA — L3 Enterprise Hardened, Security-First Identity Platform.
+ * Single source of truth for homepage and shared messaging.
+ */
+
 export const siteConfig = {
   name: "Zentra",
   company: "FBT",
   companyFull: "Future Beyond Tech",
-  tagline: "Enterprise-Grade Identity & Access Management Platform",
+  tagline: "Security-First Identity Infrastructure",
+  taglineOptions: [
+    "Security-First Identity Infrastructure",
+    "Enterprise OAuth & OpenID Connect Authority",
+    "Identity Infrastructure for Serious Systems",
+    "Self-Hosted. RFC-Compliant. Zero Lock-In.",
+    "Enterprise-Grade Identity, Without the Vendor.",
+  ],
   description:
-    "Secure OAuth 2.0 & OpenID Connect Infrastructure for Modern SaaS and Microservices.",
-  url: "https://zentra.futurebeyondtech.com",
+    "Self-hosted OAuth 2.0 and OpenID Connect authorization server. RFC-hardened, asymmetric signing, PKCE S256 only. Built for architects.",
+  url: "https://identity.futurebeyondtech.com",
   ogImage: "/og.png",
 };
 
 export const heroContent = {
-  headline: "Zentra — Enterprise-Grade Identity & Access Management Platform",
+  headline: "Zentra — Security-First Identity Infrastructure",
   subheadline:
-    "Secure OAuth 2.0 & OpenID Connect Infrastructure for Modern SaaS and Microservices.",
-  ctaPrimary: "Request Demo",
-  ctaSecondary: "Download Architecture Overview",
+    "Enterprise OAuth 2.0 & OpenID Connect authority. Self-hosted, RFC-compliant, zero vendor lock-in. Built for architects, not hobby projects.",
+  ctaPrimary: "Request Architecture Review",
+  ctaSecondary: "Download Security Whitepaper",
 };
 
 export const problemContent = {
   title: "Identity Fragmentation",
-  subtitle: "Without centralized identity, enterprises face:",
+  subtitle: "Without a centralized identity authority, enterprises face:",
   without: [
-    "Multiple user databases across products",
-    "Inconsistent password and policy enforcement",
-    "No single sign-on (SSO) across applications",
-    "Scattered audit logs and compliance gaps",
-    "Security vulnerabilities at integration boundaries",
+    "Multiple user stores and inconsistent policies",
+    "Scattered audit trails and compliance gaps",
+    "No single sign-on across web, mobile, and APIs",
+    "Inconsistent token and password policies",
+    "Security risk at every integration boundary",
   ],
   withZentra: [
     "Single source of truth for identity",
-    "Unified password and policy controls",
+    "Centralized audit trails for compliance evidence",
     "SSO across web, mobile, and APIs",
-    "Centralized audit trails for compliance",
+    "Unified policy and token lifecycle control",
     "Consistent security at every boundary",
   ],
 };
@@ -39,21 +51,117 @@ export const problemContent = {
 export const whatZentraSolves = {
   title: "What Zentra Solves",
   intro:
-    "Zentra addresses identity fragmentation, token lifecycle, and access control at scale.",
+    "Zentra addresses identity fragmentation, token lifecycle, and access control with an RFC-hardened authorization server.",
   solutions: [
     "Identity fragmentation across products and services",
-    "Token lifecycle management (issue, refresh, revoke)",
+    "Token lifecycle: issue, refresh, revoke, introspect",
     "Centralized RBAC and scope enforcement",
     "Multi-product SSO with one identity layer",
     "Microservice authentication consistency",
   ],
   highlights: [
-    { term: "Authorization Code Flow", desc: "Standard OAuth 2.0 for web apps" },
-    { term: "PKCE", desc: "For mobile and public clients" },
+    { term: "Authorization Code Flow", desc: "RFC 6749 — standard OAuth 2.0 for web apps" },
+    { term: "PKCE (S256 only)", desc: "RFC 7636 — public and mobile clients" },
     { term: "Client Credentials", desc: "Machine-to-machine and service accounts" },
-    { term: "Refresh token rotation", desc: "Short-lived access, secure refresh" },
-    { term: "Token introspection", desc: "API Gateway and resource server validation" },
+    { term: "Refresh token rotation + reuse detection", desc: "Short-lived access, secure refresh" },
+    { term: "Token introspection", desc: "RFC 7662 — gateway and resource server validation" },
     { term: "JWKS", desc: "Distributed JWT validation without shared secrets" },
+  ],
+};
+
+// --- Security Highlights (L3 Enterprise Hardened) ---
+export const securityHighlights = {
+  title: "Security Highlights",
+  subtitle: "L3 Enterprise Hardened. Implemented, not promised.",
+  items: [
+    "PKCE S256 only — no plain code_challenge",
+    "Asymmetric signing (RS256 / ES256) — no HMAC shared secrets for access tokens",
+    "Refresh token rotation with reuse detection",
+    "RFC 6749, 7636, 7009, 7662 — compliant authorization and token endpoints",
+    "Strict audience validation for tokens",
+    "Rate limiting and security headers on all endpoints",
+    "Secrets via environment or vault only — never in repo or config",
+  ],
+};
+
+// --- Protocol Compliance Matrix ---
+export const protocolComplianceMatrix: Array<{
+  rfc: string;
+  name: string;
+  level: string;
+  inPractice: string;
+}> = [
+  {
+    rfc: "RFC 6749",
+    name: "OAuth 2.0",
+    level: "Compliant",
+    inPractice: "Authorization code, client credentials, refresh token; token revocation.",
+  },
+  {
+    rfc: "RFC 7636",
+    name: "PKCE",
+    level: "S256 only",
+    inPractice: "code_challenge_method S256 enforced for public clients.",
+  },
+  {
+    rfc: "RFC 7009",
+    name: "Token Revocation",
+    level: "Compliant",
+    inPractice: "Revocation endpoint; refresh token invalidation on revoke.",
+  },
+  {
+    rfc: "RFC 7662",
+    name: "Token Introspection",
+    level: "Compliant",
+    inPractice: "Introspection endpoint for gateway and resource server validation.",
+  },
+  {
+    rfc: "RFC 7519",
+    name: "JWT",
+    level: "Compliant",
+    inPractice: "Access tokens as JWTs; RS256/ES256 signing; standard claims.",
+  },
+  {
+    rfc: "RFC 7517",
+    name: "JWK / JWKS",
+    level: "Compliant",
+    inPractice: "JWKS endpoint for distributed validation; key rotation supported.",
+  },
+];
+
+// --- Architecture Overview ---
+export const architectureOverview = {
+  title: "Architecture Overview",
+  subtitle:
+    "Authorization Server, JWKS validation, token lifecycle, revocation, introspection. Enforced at the gateway; Clean Architecture underneath.",
+  flow: [
+    { label: "Client", desc: "SPA, native app, or server" },
+    { label: "API Gateway", desc: "JWT validation, scope-based routing" },
+    { label: "Zentra", desc: "Authorization server, refresh tokens, RBAC" },
+    { label: "Resource Services", desc: "Scope-based access" },
+    { label: "Data", desc: "Your data layer" },
+  ],
+  bullets: [
+    "Authorization Server: /authorize, /token, /revoke, /introspect, /.well-known/openid-configuration",
+    "JWKS endpoint for JWT validation without shared secrets",
+    "Token lifecycle: short-lived access tokens; refresh with rotation and reuse detection",
+    "Revocation (RFC 7009) and introspection (RFC 7662) for gateway and resource servers",
+    "Gateway enforcement: validate JWT, check audience and expiry, enforce scopes",
+    "Clean Architecture: Domain → Application → Infrastructure → API",
+  ],
+};
+
+// --- Enterprise Trust ---
+export const enterpriseTrust = {
+  title: "Enterprise Trust",
+  subtitle: "Designed for visibility, rotation, and regression safety.",
+  items: [
+    "Key rotation model: signing keys rotatable; JWKS exposes current keys; no downtime for rotation",
+    "Token replay prevention: short-lived access tokens; refresh reuse detection",
+    "Layer separation: domain isolated from infrastructure; no security logic in API layer",
+    "Security regression test suite: flows and revocation covered by automated tests",
+    "CI security gates: no secrets in repo; build fails on known-vulnerable dependencies",
+    "Monitoring and governance: structured audit logs; integration points for SIEM",
   ],
 };
 
@@ -61,46 +169,39 @@ export const coreCapabilities = {
   security: {
     title: "Security Architecture",
     items: [
-      "JWT signing (RS256 / ES256)",
-      "Refresh token rotation",
-      "MFA (Email / SMS / Authenticator)",
-      "LDAP / Active Directory integration",
-      "Role & scope enforcement",
-      "Token revocation endpoint",
-      "PKCE enforcement",
-      "Audit trails",
+      "PKCE S256 only; asymmetric signing (RS256 / ES256)",
+      "Refresh token rotation and reuse detection",
+      "Token revocation and introspection endpoints",
+      "Role and scope enforcement; strict audience validation",
+      "Rate limiting and security headers",
+      "Audit trails; secrets via environment or vault only",
+      "MFA (authenticator, email, SMS); LDAP / AD integration",
     ],
   },
   architecture: {
-    title: "Clean Architecture Implementation",
+    title: "Clean Architecture",
     items: [
       "Domain → Application → Infrastructure → API",
-      "Repository pattern",
-      "Config-driven behavior",
+      "Repository pattern; config-driven behavior",
       "Multi-database support",
     ],
   },
   microservices: {
     title: "Microservices-Ready",
     items: [
-      "Stateless token validation",
-      "JWKS endpoint",
-      "API Gateway integration",
-      "Scope-based routing",
-      "Header propagation (X-User-ID)",
+      "Stateless token validation via JWKS",
+      "API Gateway integration; scope-based routing",
+      "Header propagation (e.g. X-User-ID) for downstream services",
     ],
   },
   compliance: {
-    title: "Compliance & Governance",
+    title: "Compliance Evidence",
     items: [
-      "SOC 2 readiness",
-      "GDPR alignment",
-      "HIPAA considerations",
-      "ISO 27001",
-      "OWASP Top 10 mitigation",
-      "Audit logs and access controls",
-      "Encryption in transit",
-      "Secrets management policy",
+      "Audit logs and access controls for evidence gathering",
+      "Encryption in transit (TLS); secrets management policy",
+      "OWASP Top 10 mitigation (documented in whitepaper)",
+      "Self-hosted deployment for data sovereignty and control",
+      "No claim of SOC 2 or ISO certification — controls support your audit path",
     ],
   },
 };
@@ -112,16 +213,16 @@ export const useCasesContent: Array<{
 }> = [
   {
     title: "SaaS Platform",
-    description: "Unified identity for web, mobile, and API — e.g. RentFlow-style products.",
+    description: "Unified identity for web, mobile, and API.",
     bullets: [
-      "Web + Mobile + API under one identity",
-      "SSO across products",
-      "Unified policy and RBAC",
+      "One identity layer across products",
+      "Unified RBAC and policy",
+      "SSO for web, mobile, and APIs",
     ],
   },
   {
     title: "Enterprise SSO",
-    description: "HR, Finance, IT systems with corporate directory integration.",
+    description: "Corporate directory integration for HR, Finance, IT.",
     bullets: [
       "LDAP / AD integration",
       "MFA enforcement",
@@ -129,20 +230,20 @@ export const useCasesContent: Array<{
     ],
   },
   {
-    title: "Mobile PKCE Authentication",
-    description: "Public clients with secure token handling.",
+    title: "Mobile & Public Clients",
+    description: "PKCE S256 and refresh token rotation for public clients.",
     bullets: [
-      "PKCE for public clients",
-      "Secure token storage",
-      "Refresh token rotation",
+      "PKCE S256 only",
+      "Refresh token rotation and reuse detection",
+      "Secure token handling",
     ],
   },
   {
     title: "API Gateway Protection",
-    description: "Protect microservices and APIs with JWT validation.",
+    description: "Protect microservices with JWT validation and introspection.",
     bullets: [
       "JWT validation at gateway",
-      "Introspection support",
+      "Introspection (RFC 7662)",
       "Scope-based routing",
     ],
   },
@@ -151,10 +252,17 @@ export const useCasesContent: Array<{
 export const comparisonData = [
   { feature: "Vendor lock-in", auth0: "Yes", okta: "Yes", zentra: "No" },
   { feature: "Data sovereignty", auth0: "Limited", okta: "Limited", zentra: "Full" },
-  { feature: "Cost at scale", auth0: "High", okta: "Very High", zentra: "Infrastructure only" },
+  { feature: "Cost model", auth0: "MAU-based", okta: "MAU-based", zentra: "Infrastructure only" },
+  { feature: "Security visibility", auth0: "Limited", okta: "Limited", zentra: "Full" },
   { feature: "Customization", auth0: "Limited", okta: "Limited", zentra: "Full" },
   { feature: "Multi-product reuse", auth0: "Partial", okta: "Partial", zentra: "Native" },
 ];
+
+export const comparisonSection = {
+  title: "Why Zentra vs Auth0 / Okta",
+  subtitle:
+    "Control, security visibility, and no vendor lock-in. Self-hosted compliance control and transparent architecture.",
+};
 
 export const roadmapLevels = [
   {
@@ -167,60 +275,89 @@ export const roadmapLevels = [
     level: "L2" as const,
     title: "Production Ready",
     features: ["Stable APIs", "Documentation", "Security baseline"],
-    current: true,
+    current: false,
   },
   {
     level: "L3" as const,
     title: "Enterprise Hardened",
-    features: ["Rate limiting", "Token encryption at rest", "Health endpoints", "Distributed tracing"],
-    current: false,
+    features: [
+      "PKCE S256 only; refresh rotation + reuse detection",
+      "Rate limiting; security headers; token revocation & introspection",
+      "Health endpoints; audit trails; secrets via env/vault",
+    ],
+    current: true,
   },
   {
     level: "L4" as const,
     title: "Cloud Native",
-    features: ["Containerization", "Kubernetes", "Horizontal scaling"],
+    features: ["Horizontal scaling", "Kubernetes", "Containerization"],
     current: false,
   },
   {
     level: "L5" as const,
     title: "Platform Identity Provider",
-    features: ["Multi-tenant", "Advanced governance", "Platform APIs"],
+    features: ["Platform APIs", "Advanced governance", "Multi-tenant"],
     current: false,
   },
 ];
 
+export const roadmapSection = {
+  title: "Maturity Roadmap",
+  subtitle: "Current: L3 Enterprise Hardened. Next: cloud-native scaling. Future: platform identity provider.",
+};
+
 export const securityCommitment = [
-  "Security First",
-  "Zero Trust Architecture",
-  "No secrets in repo",
-  "Structured logging",
-  "Observability built-in",
+  "PKCE S256 only; asymmetric signing",
+  "Secrets via environment or vault only",
+  "Structured logging and audit trails",
+  "Security regression tests in CI",
+  "No secrets in repository",
 ];
 
 export const trustSignals = [
-  "Secure by design",
+  "RFC 6749, 7636, 7009, 7662 compliant",
+  "OWASP Top 10 mitigation documented",
+  "Clean Architecture; CQRS + Vertical Slice",
   "Built on .NET 8",
-  "Clean Architecture enforced",
-  "CQRS + Vertical Slice",
-  "OWASP compliant",
-  "Audit logging",
-  "Multi-tenant ready (roadmap)",
+  "Audit logging for compliance evidence",
+  "Self-hosted; zero vendor lock-in",
 ];
 
 export const ctaContent = {
-  headline: "Focus on your business.\nZentra secures your identity layer.",
-  primary: "Schedule Architecture Call",
+  headline: "Identity infrastructure for serious systems.\nZentra secures it.",
+  primary: "Request Architecture Review",
   secondary: "Download Security Whitepaper",
+  tertiary: "Schedule Security Assessment",
 };
 
 export const messaging = {
-  coreSentence:
-    "You build your product. Zentra protects your identity layer.",
+  coreSentence: "You build your product. Zentra secures your identity layer.",
   benefits: [
-    "Build SaaS without worrying about auth",
-    "Scale to millions without vendor pricing explosion",
-    "Centralize identity across products",
-    "Maintain compliance easily",
-    "Protect APIs and microservices correctly",
+    "Protect APIs and microservices with RFC-hardened tokens",
+    "Centralize identity across products with one authority",
+    "Maintain compliance with audit trails and control over data",
+    "Scale without MAU-based vendor pricing",
+    "Deploy securely with full visibility and no lock-in",
+  ],
+};
+
+export const contactSection = {
+  title: "Request Architecture Review",
+  subtitle:
+    "Schedule a security assessment or download the latest L3 security whitepaper.",
+};
+
+export const seo = {
+  metaDescription:
+    "Zentra: security-first identity infrastructure. Self-hosted OAuth 2.0 and OpenID Connect, RFC-compliant, PKCE S256 only, refresh token rotation. For enterprise architects.",
+  keywords: [
+    "OAuth 2.0 server",
+    "OpenID Connect provider",
+    "enterprise identity platform",
+    "self-hosted identity provider",
+    "RFC 6749",
+    "PKCE S256",
+    "authorization server",
+    "identity infrastructure",
   ],
 };

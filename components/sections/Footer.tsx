@@ -18,8 +18,8 @@ export function Footer() {
             </span>
           </div>
           <nav aria-label="Footer navigation" className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#solutions" className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
-              Solutions
+            <a href="#security-highlights" className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
+              Security
             </a>
             <a href="#use-cases" className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
               Use Cases
@@ -30,7 +30,7 @@ export function Footer() {
           </nav>
         </div>
         <p className="mt-6 text-center text-xs text-muted-foreground sm:text-left">
-          © {year} {siteConfig.companyFull}. {siteConfig.name} — Enterprise Identity Platform.
+          © {year} {siteConfig.companyFull}. {siteConfig.name} — {siteConfig.tagline}.
         </p>
       </div>
     </footer>

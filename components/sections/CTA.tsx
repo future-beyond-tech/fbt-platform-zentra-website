@@ -55,7 +55,7 @@ export function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ delay: 0.1 }}
-          className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap"
         >
           <Button asChild size="xl" className="w-full sm:w-auto rounded-lg">
             <a href="#contact">{ctaContent.primary}</a>
@@ -66,8 +66,18 @@ export function CTA() {
             size="xl"
             className="w-full sm:w-auto rounded-lg border-border"
           >
-            <a href="#contact">{ctaContent.secondary}</a>
+            <a href="/security-whitepaper">{ctaContent.secondary}</a>
           </Button>
+          {ctaContent.tertiary && (
+            <Button
+              asChild
+              variant="outline"
+              size="xl"
+              className="w-full sm:w-auto rounded-lg border-border"
+            >
+              <a href="#contact">{ctaContent.tertiary}</a>
+            </Button>
+          )}
         </motion.div>
       </div>
     </section>

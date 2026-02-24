@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { comparisonData } from "@/content/site";
+import { comparisonData, comparisonSection } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 const headers = ["Feature", "Auth0", "Okta", "Zentra"] as const;
@@ -21,7 +21,7 @@ export function Comparison() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
         >
-          Why Not Auth0 / Okta?
+          {comparisonSection.title}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -30,7 +30,7 @@ export function Comparison() {
           transition={{ delay: 0.05 }}
           className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground"
         >
-          75–95% cost savings at scale. No MAU pricing. Own your identity layer. Increase IP valuation.
+          {comparisonSection.subtitle}
         </motion.p>
 
         <motion.div

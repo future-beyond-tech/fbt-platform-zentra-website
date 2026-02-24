@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { contactFormSchema, type ContactFormSchema } from "@/lib/validations/contact";
+import { contactSection } from "@/content/site";
 import { submitContactRequest } from "@/services/contact";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -67,7 +68,7 @@ export function ContactForm() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
         >
-          Request a Demo
+          {contactSection.title}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -76,7 +77,7 @@ export function ContactForm() {
           transition={{ delay: 0.05 }}
           className="mt-2 text-center text-muted-foreground"
         >
-          Schedule an architecture call or download our security whitepaper.
+          {contactSection.subtitle}
         </motion.p>
 
         <motion.form

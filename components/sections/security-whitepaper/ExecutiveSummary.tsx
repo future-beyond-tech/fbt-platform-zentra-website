@@ -30,9 +30,9 @@ const summaryCards = [
     icon: Building2,
   },
   {
-    title: "Compliance Readiness",
+    title: "Compliance Evidence",
     description:
-      "Designed with SOC 2, GDPR, HIPAA, and ISO 27001 in mind. Audit trails, encryption, and access controls.",
+      "Audit trails, encryption in transit, and access controls support your path to SOC 2, GDPR, HIPAA, or ISO 27001. We do not claim certification; controls are documented for your audit.",
     icon: FileCheck,
   },
   {
