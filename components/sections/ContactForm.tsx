@@ -58,7 +58,7 @@ export function ContactForm() {
     <section
       id="contact"
       aria-labelledby="contact-title"
-      className="border-b border-border/50 bg-muted/20 py-20 sm:py-24"
+      className="border-b border-border/50 bg-muted/20 py-12 sm:py-16 md:py-20 lg:py-24"
     >
       <div className="mx-auto max-w-xl px-4 sm:px-6 lg:px-8">
         <motion.h2
@@ -66,7 +66,7 @@ export function ContactForm() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
+          className="text-center text-xl font-semibold tracking-tight text-foreground sm:text-2xl md:text-3xl"
         >
           {contactSection.title}
         </motion.h2>
@@ -85,7 +85,7 @@ export function ContactForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           onSubmit={handleSubmit(onSubmit)}
-          className="mt-10 space-y-5"
+          className="mt-8 space-y-4 sm:mt-10 sm:space-y-5"
           noValidate
           aria-label="Contact / demo request form"
         >
@@ -145,6 +145,8 @@ export function ContactForm() {
             <Input
               id="contact-email"
               type="email"
+              inputMode="email"
+              autoComplete="email"
               placeholder="you@company.com"
               {...register("email")}
               aria-invalid={!!errors.email}
@@ -180,6 +182,7 @@ export function ContactForm() {
             <Label htmlFor="contact-expectedMAU">Expected MAU</Label>
             <Input
               id="contact-expectedMAU"
+              inputMode="text"
               placeholder="e.g. 10K, 100K, 1M+"
               {...register("expectedMAU")}
               aria-invalid={!!errors.expectedMAU}
@@ -207,7 +210,7 @@ export function ContactForm() {
           <Button
             type="submit"
             size="lg"
-            className="w-full rounded-lg"
+            className="w-full rounded-lg touch-manipulation min-h-[48px]"
             disabled={isSubmitting}
             aria-busy={isSubmitting}
           >

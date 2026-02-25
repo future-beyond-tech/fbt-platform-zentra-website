@@ -7,24 +7,26 @@ export const siteConfig = {
   name: "Zentra",
   company: "FBT",
   companyFull: "Future Beyond Tech",
-  tagline: "Security-First Identity Infrastructure",
+  /** FBT main site; clicking FBT in header/footer transitions here */
+  companyUrl: "https://futurebeyondtech.com",
+  tagline: "Evidence-Based Identity Infrastructure",
   taglineOptions: [
+    "Evidence-Based Identity Infrastructure",
     "Security-First Identity Infrastructure",
     "Enterprise OAuth & OpenID Connect Authority",
     "Identity Infrastructure for Serious Systems",
     "Self-Hosted. RFC-Compliant. Zero Lock-In.",
-    "Enterprise-Grade Identity, Without the Vendor.",
   ],
   description:
-    "Self-hosted OAuth 2.0 and OpenID Connect authorization server. RFC-hardened, asymmetric signing, PKCE S256 only. Built for architects.",
+    "Evidence-based OAuth 2.0 and OpenID Connect authorization server. RFC-compliant, STRIDE-modeled, risk transparency documented. Built for enterprise evaluation.",
   url: "https://identity.futurebeyondtech.com",
   ogImage: "/og.png",
 };
 
 export const heroContent = {
-  headline: "Zentra — Security-First Identity Infrastructure",
+  headline: "Zentra — Evidence-Based Identity Infrastructure",
   subheadline:
-    "Enterprise OAuth 2.0 & OpenID Connect authority. Self-hosted, RFC-compliant, zero vendor lock-in. Built for architects, not hobby projects.",
+    "Enterprise OAuth 2.0 & OpenID Connect authority. RFC 6749, 7636, 7009, 7662 compliant. STRIDE-modeled, risk transparency documented, governance-first. Built for procurement evaluation.",
   ctaPrimary: "Request Architecture Review",
   ctaSecondary: "Download Security Whitepaper",
 };
@@ -69,10 +71,10 @@ export const whatZentraSolves = {
   ],
 };
 
-// --- Security Highlights (L3 Enterprise Hardened) ---
+// --- Security Highlights (Evidence-Based) ---
 export const securityHighlights = {
   title: "Security Highlights",
-  subtitle: "L3 Enterprise Hardened. Implemented, not promised.",
+  subtitle: "Evidence-based. Implemented and documented, not promised.",
   items: [
     "PKCE S256 only — no plain code_challenge",
     "Asymmetric signing (RS256 / ES256) — no HMAC shared secrets for access tokens",
@@ -316,10 +318,10 @@ export const securityCommitment = [
 
 export const trustSignals = [
   "RFC 6749, 7636, 7009, 7662 compliant",
+  "STRIDE-modeled architecture",
+  "Risk transparency documented",
+  "Governance-first approach",
   "OWASP Top 10 mitigation documented",
-  "Clean Architecture; CQRS + Vertical Slice",
-  "Built on .NET 8",
-  "Audit logging for compliance evidence",
   "Self-hosted; zero vendor lock-in",
 ];
 
@@ -344,16 +346,16 @@ export const messaging = {
 export const contactSection = {
   title: "Request Architecture Review",
   subtitle:
-    "Schedule a security assessment or download the latest L3 security whitepaper.",
+    "Schedule a security assessment or download the evidence-based Security Whitepaper v1.1.",
 };
 
 export const seo = {
   metaDescription:
-    "Zentra: security-first identity infrastructure. Self-hosted OAuth 2.0 and OpenID Connect, RFC-compliant, PKCE S256 only, refresh token rotation. For enterprise architects.",
+    "Zentra: evidence-based identity infrastructure. OAuth 2.0 and OpenID Connect, RFC-compliant, STRIDE-modeled, risk transparency. For enterprise procurement evaluation.",
   keywords: [
     "OAuth 2.0 server",
     "OpenID Connect provider",
-    "enterprise identity platform",
+    "evidence-based identity",
     "self-hosted identity provider",
     "RFC 6749",
     "PKCE S256",

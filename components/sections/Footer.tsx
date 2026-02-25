@@ -1,9 +1,11 @@
 "use client";
 
 import { siteConfig } from "@/content/site";
+import { useFbtTransition } from "@/contexts/fbt-transition";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const { goToFbt } = useFbtTransition();
   return (
     <footer
       className="border-t border-border/50 bg-background py-10"
@@ -14,17 +16,31 @@ export function Footer() {
           <div className="text-center sm:text-left">
             <span className="font-semibold text-foreground">{siteConfig.name}</span>
             <span className="ml-1.5 text-muted-foreground">
-              by {siteConfig.companyFull}
+              by{" "}
+              <button
+                type="button"
+                onClick={goToFbt}
+                className="text-muted-foreground hover:text-foreground underline underline-offset-2 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded touch-manipulation"
+                aria-label={`Go to ${siteConfig.companyFull} website`}
+              >
+                {siteConfig.companyFull}
+              </button>
             </span>
           </div>
-          <nav aria-label="Footer navigation" className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#security-highlights" className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
+          <nav aria-label="Footer navigation" className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground sm:justify-end">
+            <a href="/#security-highlights" className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
               Security
             </a>
-            <a href="#use-cases" className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
+            <a href="/#use-cases" className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
               Use Cases
             </a>
-            <a href="#contact" className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
+            <a href="/trust" className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
+              Trust Center
+            </a>
+            <a href="/security-whitepaper" className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
+              Whitepaper
+            </a>
+            <a href="/#contact" className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
               Contact
             </a>
           </nav>

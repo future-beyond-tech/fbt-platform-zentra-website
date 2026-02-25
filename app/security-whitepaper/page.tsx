@@ -2,39 +2,32 @@ import type { Metadata } from "next";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
 import { WhitepaperHero } from "@/components/sections/security-whitepaper/Hero";
-import { WhitepaperExecutiveSummary } from "@/components/sections/security-whitepaper/ExecutiveSummary";
+import { WhitepaperDownloads } from "@/components/sections/security-whitepaper/WhitepaperDownloads";
+import { WhatsNewInV11 } from "@/components/sections/security-whitepaper/WhatsNewInV11";
 import { WhitepaperTrustBadges } from "@/components/sections/security-whitepaper/TrustBadges";
+import { WhitepaperExecutiveSummary } from "@/components/sections/security-whitepaper/ExecutiveSummary";
 import { WhitepaperProtocolStandards } from "@/components/sections/security-whitepaper/ProtocolStandards";
 import { WhitepaperTokenSecurityModel } from "@/components/sections/security-whitepaper/TokenSecurityModel";
 import { WhitepaperOwaspMitigationTable } from "@/components/sections/security-whitepaper/OwaspMitigationTable";
 import { WhitepaperZeroTrustSection } from "@/components/sections/security-whitepaper/ZeroTrustSection";
 import { WhitepaperComplianceMapping } from "@/components/sections/security-whitepaper/ComplianceMapping";
 import { WhitepaperSecurityRoadmap } from "@/components/sections/security-whitepaper/SecurityRoadmap";
-import { WhitepaperGatedDownloadForm } from "@/components/sections/security-whitepaper/GatedDownloadForm";
 import { siteConfig } from "@/content/site";
+import { whitepaperSeo } from "@/content/whitepaper";
 
 export const metadata: Metadata = {
-  title: "Zentra Security Whitepaper | Enterprise OAuth 2.0 & OpenID Connect",
-  description:
-    "Download the official Zentra Security Whitepaper covering Zero Trust Architecture, OAuth 2.0, OIDC, OWASP mitigation, and enterprise compliance readiness.",
-  keywords: [
-    "OAuth 2.0 identity provider",
-    "OpenID Connect server",
-    "Enterprise SSO whitepaper",
-    "Self-hosted identity provider",
-    "JWT security architecture",
-  ],
+  title: whitepaperSeo.title,
+  description: whitepaperSeo.description,
+  keywords: whitepaperSeo.keywords,
   openGraph: {
-    title: "Zentra Security Whitepaper | Enterprise OAuth 2.0 & OpenID Connect",
-    description:
-      "Download the official Zentra Security Whitepaper covering Zero Trust Architecture, OAuth 2.0, OIDC, OWASP mitigation, and enterprise compliance readiness.",
+    title: whitepaperSeo.title,
+    description: whitepaperSeo.description,
     url: `${siteConfig.url}/security-whitepaper`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zentra Security Whitepaper | Enterprise OAuth 2.0 & OpenID Connect",
-    description:
-      "Download the official Zentra Security Whitepaper covering Zero Trust Architecture, OAuth 2.0, OIDC, OWASP mitigation, and enterprise compliance readiness.",
+    title: whitepaperSeo.title,
+    description: whitepaperSeo.description,
   },
   robots: "index, follow",
 };
@@ -44,48 +37,26 @@ function WhitepaperJsonLd() {
   const techArticle = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    name: "Zentra Security Whitepaper — Version 1.0",
-    description:
-      "Enterprise Identity Platform — Security Architecture & Compliance. Zero Trust, OAuth 2.0, OpenID Connect, OWASP mitigation, and compliance readiness.",
+    name: "Zentra Security Whitepaper — Version 1.1",
+    description: whitepaperSeo.description,
     datePublished: "2026-02-01",
-    author: {
-      "@type": "Organization",
-      name: siteConfig.companyFull,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.companyFull,
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${baseUrl}/security-whitepaper`,
-    },
+    author: { "@type": "Organization", name: siteConfig.companyFull },
+    publisher: { "@type": "Organization", name: siteConfig.companyFull },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${baseUrl}/security-whitepaper` },
   };
-
   const softwareApp = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: siteConfig.name,
     applicationCategory: "DeveloperApplication",
     operatingSystem: "Any",
-    description:
-      "Security-first identity infrastructure designed for SaaS and distributed systems. Enterprise-grade OAuth 2.0 & OpenID Connect without vendor lock-in.",
-    provider: {
-      "@type": "Organization",
-      name: siteConfig.companyFull,
-    },
+    description: "Evidence-based identity infrastructure. OAuth 2.0 & OpenID Connect, STRIDE-modeled, RFC-compliant.",
+    provider: { "@type": "Organization", name: siteConfig.companyFull },
   };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApp) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApp) }} />
     </>
   );
 }
@@ -97,6 +68,8 @@ export default function SecurityWhitepaperPage() {
       <Header />
       <main id="main" role="main">
         <WhitepaperHero />
+        <WhitepaperDownloads />
+        <WhatsNewInV11 />
         <WhitepaperTrustBadges />
         <WhitepaperExecutiveSummary />
         <WhitepaperProtocolStandards />
@@ -105,7 +78,6 @@ export default function SecurityWhitepaperPage() {
         <WhitepaperZeroTrustSection />
         <WhitepaperComplianceMapping />
         <WhitepaperSecurityRoadmap />
-        <WhitepaperGatedDownloadForm />
       </main>
       <Footer />
     </>

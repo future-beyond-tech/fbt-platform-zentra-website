@@ -9,14 +9,14 @@ export function CTA() {
     <section
       id="cta"
       aria-labelledby="cta-heading"
-      className="border-b border-border/50 py-20 sm:py-24"
+      className="border-b border-border/50 py-12 sm:py-16 md:py-20 lg:py-24"
     >
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          className="text-lg font-medium text-muted-foreground"
+          className="text-base font-medium text-muted-foreground sm:text-lg"
         >
           {messaging.coreSentence}
         </motion.p>
@@ -26,7 +26,7 @@ export function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ delay: 0.05 }}
-          className="mt-4 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
+          className="mt-3 text-xl font-semibold tracking-tight text-foreground sm:mt-4 sm:text-2xl md:text-3xl"
         >
           {ctaContent.headline.split("\n").map((line, i) => (
             <span key={i}>
@@ -40,12 +40,12 @@ export function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ delay: 0.07 }}
-          className="mx-auto mt-6 max-w-xl space-y-2 text-left text-sm text-muted-foreground"
+          className="mx-auto mt-4 max-w-xl space-y-2 text-left text-sm text-muted-foreground sm:mt-6"
           role="list"
         >
           {messaging.benefits.map((b) => (
             <li key={b} className="flex gap-2">
-              <span className="text-primary" aria-hidden>✓</span>
+              <span className="text-primary shrink-0" aria-hidden>✓</span>
               {b}
             </li>
           ))}
@@ -55,16 +55,16 @@ export function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ delay: 0.1 }}
-          className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap"
+          className="mt-6 flex flex-col items-stretch gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4"
         >
-          <Button asChild size="xl" className="w-full sm:w-auto rounded-lg">
+          <Button asChild size="xl" className="w-full sm:w-auto rounded-lg touch-manipulation">
             <a href="#contact">{ctaContent.primary}</a>
           </Button>
           <Button
             asChild
             variant="outline"
             size="xl"
-            className="w-full sm:w-auto rounded-lg border-border"
+            className="w-full sm:w-auto rounded-lg border-border touch-manipulation"
           >
             <a href="/security-whitepaper">{ctaContent.secondary}</a>
           </Button>
@@ -73,7 +73,7 @@ export function CTA() {
               asChild
               variant="outline"
               size="xl"
-              className="w-full sm:w-auto rounded-lg border-border"
+              className="w-full sm:w-auto rounded-lg border-border touch-manipulation"
             >
               <a href="#contact">{ctaContent.tertiary}</a>
             </Button>

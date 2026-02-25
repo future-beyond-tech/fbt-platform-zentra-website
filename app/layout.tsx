@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig, seo } from "@/content/site";
+import { FbtTransitionProvider } from "@/contexts/fbt-transition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -77,7 +78,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background text-foreground`}
       >
-        {children}
+        <FbtTransitionProvider>{children}</FbtTransitionProvider>
       </body>
     </html>
   );

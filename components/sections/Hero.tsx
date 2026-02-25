@@ -23,46 +23,46 @@ export function Hero() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden border-b border-border/50 bg-gradient-to-b from-background to-background/95 pt-28 pb-20 sm:pt-32 sm:pb-28"
+      className="relative overflow-hidden border-b border-border/50 bg-gradient-to-b from-background to-background/95 pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-32 md:pb-28 safe-area-inset-top"
     >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,120,120,0.15),transparent)]" />
-      <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8 safe-area-x">
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="space-y-8"
+          className="space-y-6 sm:space-y-8"
         >
           <motion.h1
             id="hero-heading"
             variants={item}
             className={cn(
-              "text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl",
-              "leading-[1.15]"
+              "text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl",
+              "leading-[1.2]"
             )}
           >
             {heroContent.headline}
           </motion.h1>
           <motion.p
             variants={item}
-            className="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl"
+            className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl"
           >
             {heroContent.subheadline}
           </motion.p>
           <motion.div
             variants={item}
-            className="flex flex-col items-center justify-center gap-4 sm:flex-row"
+            className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4"
           >
-            <Button asChild size="xl" className="w-full sm:w-auto rounded-lg">
+            <Button asChild size="xl" className="w-full sm:w-auto rounded-lg touch-manipulation">
               <a href="#contact">{heroContent.ctaPrimary}</a>
             </Button>
             <Button
               asChild
               variant="outline"
               size="xl"
-              className="w-full sm:w-auto rounded-lg border-border"
+              className="w-full sm:w-auto rounded-lg border-border touch-manipulation"
             >
-              <a href="#contact">{heroContent.ctaSecondary}</a>
+              <a href="/security-whitepaper">{heroContent.ctaSecondary}</a>
             </Button>
           </motion.div>
         </motion.div>
@@ -72,13 +72,13 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
-          className="mt-16 rounded-xl border border-border bg-card/50 p-6 sm:p-8"
+          className="mt-12 rounded-xl border border-border bg-card/50 p-4 sm:mt-16 sm:p-6 md:p-8"
           aria-label="Architecture flow: Client to API Gateway to Zentra to Microservices"
         >
           <figcaption className="sr-only">
             Client requests flow to API Gateway, then to Zentra for identity, then to microservices.
           </figcaption>
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 md:gap-6">
             <Box label="Client" />
             <Arrow />
             <Box label="API Gateway" />
@@ -100,7 +100,7 @@ function Box({
   return (
     <div
       className={cn(
-        "rounded-lg border px-4 py-2.5 text-sm font-medium",
+        "rounded-lg border px-3 py-2 text-xs font-medium sm:px-4 sm:py-2.5 sm:text-sm",
         highlight
           ? "border-primary/50 bg-primary/10 text-foreground"
           : "border-border bg-muted/50 text-muted-foreground"

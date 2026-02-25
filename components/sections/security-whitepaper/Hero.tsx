@@ -36,7 +36,7 @@ export function WhitepaperHero() {
           <motion.div variants={item} className="flex justify-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-4 py-1.5 text-xs font-medium text-muted-foreground">
               <FileText className="h-3.5 w-3.5" aria-hidden />
-              Version 1.0 | February 2026 | FBT (Future Beyond Tech)
+              v1.1 (Latest) | February 2026 | Evidence-Based
             </span>
           </motion.div>
           <motion.h1
@@ -53,17 +53,17 @@ export function WhitepaperHero() {
             variants={item}
             className="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl"
           >
-            Enterprise Identity Platform — Security Architecture & Compliance
+            Evidence-Based OAuth2 / OIDC Security Architecture
           </motion.p>
           <motion.p variants={item} className="mx-auto max-w-xl text-sm text-muted-foreground/90">
-            Security-first identity infrastructure designed for SaaS and distributed systems.
+            STRIDE threat model, RFC compliance evidence, residual risk transparency, governance model, L2.5 maturity.
           </motion.p>
           <motion.div
             variants={item}
             className="flex flex-col items-center justify-center gap-4 pt-2 sm:flex-row"
           >
             <Button asChild size="lg" className="w-full sm:w-auto rounded-xl">
-              <a href="#download-whitepaper">Download Whitepaper</a>
+              <a href="#download-whitepaper">Download Whitepapers</a>
             </Button>
             <Button
               asChild
@@ -71,7 +71,7 @@ export function WhitepaperHero() {
               size="lg"
               className="w-full sm:w-auto rounded-xl border-border"
             >
-              <a href="/#contact">Schedule Security Review</a>
+              <a href="/trust">Trust Center</a>
             </Button>
           </motion.div>
         </motion.div>
